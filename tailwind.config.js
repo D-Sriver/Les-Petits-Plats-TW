@@ -2,7 +2,14 @@
 module.exports = {
   content: ["./*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        667: "41.6875rem",
+      },
+      fontFamily: {
+        anton: ["Anton", "sans-serif"],
+      },
+    },
   },
   plugins: [],
-}
+};
