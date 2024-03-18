@@ -1,4 +1,4 @@
-import { getSearch } from "../utils/search.js";
+import { getSearch } from "/js/Utils/search.js";
 
 export function logInputValue() {
   const inputElement = getSearch();

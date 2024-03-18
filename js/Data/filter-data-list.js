@@ -1,4 +1,4 @@
-import { recipes } from "./recipes.js";
+import { recipes } from "/js/Data/recipes.js";
 
 const getIngredients = () => {
   // crée un tableau vide pour stocker les ingrédients

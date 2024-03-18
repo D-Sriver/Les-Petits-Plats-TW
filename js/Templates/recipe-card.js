@@ -1,4 +1,4 @@
-import { recipes } from "../data/recipes.js";
+import { recipes } from "/js/Data/recipes.js";
 // récupère la div qui contiendra les recettes
 const recipeContainer = document.querySelector(".recipes");
 const generateRecipeHTML = (recipe) => {
