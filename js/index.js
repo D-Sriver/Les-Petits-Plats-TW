@@ -1,11 +1,18 @@
-import { displayRecipes } from "/js/Templates/recipe-card.js";
+import { recipes } from "/js/Data/recipes.js";
 
+import { displayRecipes } from "/js/Templates/recipe-card.js";
 // Appel des fonctions
-displayRecipes();
+displayRecipes(recipes);
 
 // Debug
 import { logInputValue } from "/js/Data/input-data.js";
 logInputValue();
+
+import { getSearch } from "/js/Utils/search.js";
+getSearch();
+
+import { searchRecipes } from "/js/Utils/nativeSearch.js";
+searchRecipes();
 
 //importe le dropdown
 import { handleDropdown } from "/js/Utils/dropdownList.js";
