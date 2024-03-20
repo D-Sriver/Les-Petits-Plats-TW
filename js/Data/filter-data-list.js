@@ -39,8 +39,8 @@ const getUstensils = () => {
   }, []);
   return ustensils;
 };
-console.dir(getIngredients());
-console.dir(getAppareil());
-console.dir(getUstensils());
+// console.dir(getIngredients());
+// console.dir(getAppareil());
+// console.dir(getUstensils());
 
 export { getAppareil, getIngredients, getUstensils };

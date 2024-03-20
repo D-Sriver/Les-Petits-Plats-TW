@@ -3,7 +3,7 @@ import {
   getAppareil,
   getIngredients,
   getUstensils,
-} from "../data/filter-data-list.js";
+} from "/js/Data/filter-data-list.js";
 
 function insertOptions(optionsList, items) {
   items.forEach((item) => {

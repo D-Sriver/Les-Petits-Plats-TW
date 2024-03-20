@@ -1,7 +1,6 @@
-import { recipes } from "/js/Data/recipes.js";
 // récupère la div qui contiendra les recettes
 const recipeContainer = document.querySelector(".recipes");
-const generateRecipeHTML = (recipe) => {
+export function generateRecipeHTML(recipe) {
   // crée les carte pour chaque recette en utilisant les données de recipes.js
   return `
   <div class="bg-white rounded-3xl ">
@@ -39,12 +38,12 @@ const generateRecipeHTML = (recipe) => {
       </div>
     </div>
   `;
-};
+}
 // affiche les recettes
-const displayRecipes = () => {
-  recipes.forEach((recipe) => {
+export function displayRecipes(recipesToShow) {
+  recipeContainer.innerHTML = "";
+  recipesToShow.forEach((recipe) => {
     const recipeHTML = generateRecipeHTML(recipe);
     recipeContainer.innerHTML += recipeHTML;
   });
-};
-export { displayRecipes };
+}
