@@ -3,7 +3,7 @@ import {
   getAppareil,
   getIngredients,
   getUstensils,
-} from "../data/filter-data-list.js";
+} from "/js/Data/filter-data-list.js";
 
 function insertOptions(optionsList, items) {
   items.forEach((item) => {
@@ -14,7 +14,10 @@ function insertOptions(optionsList, items) {
     paragraph.classList.add(
       "flex",
       "justify-center",
-      "m-3",
+      "items-center",
+      "h-13",
+      "text-ellipsis",
+      "p-3",
       "bg-white",
       "hover:bg-yellow-400"
     );
@@ -29,6 +32,37 @@ function insertOptions(optionsList, items) {
 function insertCategory(categoryElement, items) {
   const optionsList = categoryElement.querySelector(".dropdown-list");
   optionsList.innerHTML = "";
+
+  // Ajout du champ de recherche
+  const searchInput = document.createElement("input");
+  searchInput.setAttribute("type", "text");
+  searchInput.setAttribute("placeholder", "Rechercher...");
+  searchInput.classList.add("search-input", "m-0", "py-1", "w-full");
+
+  //ajout du bouton de recherche
+  const searchButton = document.createElement("button");
+  searchButton.classList.add("search-button", "bg-white", "ml-2");
+  const searchIcon = document.createElement("i");
+  searchIcon.classList.add("fas", "fa-search");
+  searchButton.appendChild(searchIcon);
+
+  // ajout de la liste des options dans la catégorie associée
+  const searchContainer = document.createElement("li");
+  searchContainer.classList.add(
+    "search-container",
+    "flex",
+    "sticky",
+    "my-2",
+    "mx-2",
+    "border",
+    "px-3",
+    "z-40",
+    "bg-white"
+  );
+  searchContainer.appendChild(searchInput);
+  searchContainer.appendChild(searchButton);
+  optionsList.appendChild(searchContainer);
+
   insertOptions(optionsList, items);
 }
 

@@ -1,24 +1,21 @@
-import { displayRecipes } from "/js/Templates/recipe-card.js";
-
 // Appel des fonctions
-displayRecipes();
+import { recipes } from "/js/Data/recipes.js";
 
-// Debug
-import { logInputValue } from "/js/Data/input-data.js";
-logInputValue();
+//importe l'affichage des recettes
+import { displayRecipes } from "/js/Templates/recipe-card.js";
+displayRecipes(recipes);
+
+//importe l'input de recherche
+import { getSearch } from "/js/Utils/search.js";
+getSearch();
+
+//importe la fonction searchRecipes
+import { searchRecipes } from "/js/Utils//FilterSearch.js";
+searchRecipes();
 
 //importe le dropdown
 import { handleDropdown } from "/js/Utils/dropdownList.js";
 handleDropdown();
-// Import les liste filtrées pour les select
-import {
-  getAppareil,
-  getIngredients,
-  getUstensils,
-} from "/js/Data/filter-data-list.js";
-getIngredients();
-getAppareil();
-getUstensils();
 
 //importer la liste des ingrédients des  appareils et des ustensiles
 import {
@@ -29,3 +26,13 @@ import {
 ingredientInsert();
 appareilInsert();
 ustensilsInsert();
+
+import { addTag } from "/js/Templates/tag.js";
+addTag();
+
+import { updateRecipeCount } from "/js/Utils/filterSearch.js";
+updateRecipeCount(recipes);
+
+// Debug
+import { logInputValue } from "/js/Data/input-data.js";
+logInputValue();
