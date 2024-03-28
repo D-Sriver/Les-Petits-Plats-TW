@@ -1,4 +1,3 @@
-// Définir une fonction pour gérer le dropdown
 export function handleDropdown() {
   const dropdownBtns = document.querySelectorAll(".dropdown-btn");
   document.addEventListener("click", function (event) {
@@ -12,9 +11,9 @@ export function handleDropdown() {
         // Alors on cache la liste déroulante
         if (!dropdownList.classList.contains("hidden")) {
           dropdownList.classList.add("hidden");
-          //et on arrondit les bords
-          dropdownList.classList.remove("rounded-b-xl");
         }
+        // réinitialise l'apparence
+        dropdownBtn.classList.remove("rounded-b-none");
       }
     });
   });
