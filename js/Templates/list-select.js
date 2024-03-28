@@ -5,6 +5,12 @@ import {
   getUstensils,
 } from "/js/Data/filter-data-list.js";
 
+// Fonction pour extraire le contenu du paragraphe cliqué
+export function extractTagContent(event) {
+  const clickedParagraphContent = event.target.textContent;
+  console.log(clickedParagraphContent);
+}
+
 function insertOptions(optionsList, items) {
   items.forEach((item) => {
     const option = document.createElement("li");
@@ -24,6 +30,7 @@ function insertOptions(optionsList, items) {
     );
     paragraph.textContent = item;
 
+    paragraph.addEventListener("click", extractTagContent);
     option.appendChild(paragraph);
     optionsList.appendChild(option);
   });
@@ -43,6 +50,7 @@ function insertCategory(categoryElement, items) {
     "m-0",
     "py-1",
     "w-full",
+    "rounded-xl",
     "focus:outline-none"
   );
 
