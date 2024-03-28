@@ -36,3 +36,7 @@ updateRecipeCount(recipes);
 // Debug
 import { logInputValue } from "/js/Data/input-data.js";
 logInputValue();
+
+import { handleDropdownSearch } from "/js/Utils/dropdownSearch.js";
+
+handleDropdownSearch();
