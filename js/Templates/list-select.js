@@ -16,6 +16,7 @@ function insertOptions(optionsList, items) {
       "justify-center",
       "items-center",
       "h-13",
+      "cursor-pointer",
       "text-ellipsis",
       "p-3",
       "bg-white",
@@ -37,7 +38,13 @@ function insertCategory(categoryElement, items) {
   const searchInput = document.createElement("input");
   searchInput.setAttribute("type", "text");
   searchInput.setAttribute("placeholder", "Rechercher...");
-  searchInput.classList.add("search-input", "m-0", "py-1", "w-full");
+  searchInput.classList.add(
+    "search-input",
+    "m-0",
+    "py-1",
+    "w-full",
+    "focus:outline-none"
+  );
 
   //ajout du bouton de recherche
   const searchButton = document.createElement("button");
@@ -51,11 +58,11 @@ function insertCategory(categoryElement, items) {
   searchContainer.classList.add(
     "search-container",
     "flex",
+    "top-0",
     "sticky",
-    "my-2",
-    "mx-2",
     "border",
     "px-3",
+    "py-1",
     "z-40",
     "bg-white"
   );
