@@ -1,32 +1,18 @@
 export function filterRecipes(recipes, searchTerm) {
-  const filters = [];
-  for (let i = 0; i < recipes.length; i++) {
-    const recipe = recipes[i];
+  return recipes.filter((recipe) => {
     const recipeName = recipe.name.toLowerCase();
     const recipeDescription = recipe.description.toLowerCase();
-    let trouve = false;
 
     if (
       recipeName.includes(searchTerm) ||
       recipeDescription.includes(searchTerm)
     ) {
-      trouve = true;
+      return true;
     } else {
-      for (let j = 0; j < recipe.ingredients.length; j++) {
-        const ingredient = recipe.ingredients[j];
+      return recipe.ingredients.some((ingredient) => {
         const ingredientName = ingredient.ingredient.toLowerCase();
-
-        if (ingredientName.includes(searchTerm)) {
-          trouve = true;
-          break;
-        }
-      }
+        return ingredientName.includes(searchTerm);
+      });
     }
-
-    if (trouve) {
-      filters.push(recipe);
-    }
-  }
-
-  return filters;
+  });
 }
