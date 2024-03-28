@@ -2,7 +2,7 @@
 import { recipes } from "/js/Data/recipes.js";
 
 //importe l'affichage des recettes
-import { displayRecipes } from "/js/Templates/recipe-card.js";
+import { displayRecipes } from "/js/Utils/displayRecipe.js";
 displayRecipes(recipes);
 
 //importe l'input de recherche
