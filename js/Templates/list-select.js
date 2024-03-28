@@ -72,6 +72,7 @@ function insertCategory(categoryElement, items) {
     "px-3",
     "py-1",
     "z-40",
+    "rounded-xl",
     "bg-white"
   );
   searchContainer.appendChild(searchInput);
