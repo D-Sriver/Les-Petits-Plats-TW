@@ -5,6 +5,8 @@ import {
 } from "/js/Data/filter-data-list.js";
 import { getSearch, search } from "/js/Utils/search.js";
 
+//crée un tableau vide pour stocker les tags
+let tags = [];
 // Récupérer toutes les options disponibles
 const allOptions = [...getIngredients(), ...getAppareil(), ...getUstensils()];
 
@@ -16,7 +18,6 @@ function findClosestName(searchTerm) {
 
   return closestName || null;
 }
-
 export function addTag() {
   const inputElement = getSearch();
 
@@ -26,6 +27,9 @@ export function addTag() {
     const closestName = findClosestName(inputElement.value.trim());
 
     if (closestName) {
+      // Ajoute le tag à la liste des tags
+      tags.push(closestName);
+      console.table(tags);
       const newTagElement = document.createElement("tag");
       newTagElement.classList.add(
         "tag",
