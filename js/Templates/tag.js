@@ -71,6 +71,7 @@ export function addTag() {
     inputElement.addEventListener("keyup", (event) => {
       if (event.key === "Enter" && inputElement.value.trim() !== "") {
         logiqueAddTag();
+        inputElement.value = "";
       }
     });
 
@@ -79,6 +80,7 @@ export function addTag() {
     searchButton.addEventListener("click", () => {
       if (inputElement.value.trim() !== "") {
         logiqueAddTag();
+        inputElement.value = "";
       }
     });
   });
