@@ -54,6 +54,9 @@ export function addTag() {
       closeButton.classList.add("fas", "fa-times", "cursor-pointer");
       closeButton.classList.add("p-2");
       closeButton.addEventListener("click", () => {
+        // Supprime le cliqué de la liste des tags
+        tags = tags.filter((tag) => tag !== closestName);
+        console.table(tags);
         newTagElement.remove();
       });
 
@@ -80,3 +83,5 @@ export function addTag() {
     });
   });
 }
+// exporter le tableau tags
+export { tags };
