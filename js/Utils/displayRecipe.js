@@ -1,5 +1,5 @@
 // Importez les dépendances nécessaires
-import { generateRecipeHTML } from "/js/Templates/recipe-card.js";
+import { generateRecipeHTML } from "../Templates/recipe-card.js";
 
 // Récupérez la div qui contiendra les recettes
 const recipeContainer = document.querySelector(".recipes");

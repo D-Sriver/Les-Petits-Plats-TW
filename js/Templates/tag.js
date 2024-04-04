@@ -2,7 +2,7 @@ import {
   getAppareil,
   getIngredients,
   getUstensils,
-} from "/js/Data/filter-data-list.js";
+} from "../Data/filter-data-list.js";
 import { getSearch, search } from "/js/Utils/search.js";
 
 //crée un tableau vide pour stocker les tags

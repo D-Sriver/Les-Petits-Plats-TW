@@ -1,6 +1,6 @@
 import { filterRecipes } from "./filterRecipes.js";
-import { displayRecipes } from "/js//Utils/displayRecipe.js";
 import { recipes } from "/js/Data/recipes.js";
+import { displayRecipes } from "/js/Utils/displayRecipe.js";
 
 export function searchRecipes() {
   const searchInput = document.getElementById("search");

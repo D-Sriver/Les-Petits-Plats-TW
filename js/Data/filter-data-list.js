@@ -1,4 +1,4 @@
-import { recipes } from "/js/Data/recipes.js";
+import { recipes } from "../Data/recipes.js";
 
 const capitalizeFirstLetter = (word) => {
   return word.charAt(0).toUpperCase() + word.slice(1);

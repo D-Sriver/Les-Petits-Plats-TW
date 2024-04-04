@@ -3,7 +3,7 @@ import {
   getAppareil,
   getIngredients,
   getUstensils,
-} from "/js/Data/filter-data-list.js";
+} from "../Data/filter-data-list.js";
 
 // Fonction pour extraire le contenu du paragraphe cliqué
 export function extractTagContent(event) {

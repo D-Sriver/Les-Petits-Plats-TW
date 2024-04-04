@@ -1,20 +1,20 @@
 // Appel des fonctions
-import { recipes } from "/js/Data/recipes.js";
+import { recipes } from "./Data/recipes.js";
 
 //importe l'affichage des recettes
-import { displayRecipes } from "/js/Utils/displayRecipe.js";
+import { displayRecipes } from "./Utils/displayRecipe.js";
 displayRecipes(recipes);
 
 //importe l'input de recherche
-import { getSearch } from "/js/Utils/search.js";
+import { getSearch } from "./Utils/search.js";
 getSearch();
 
 //importe la fonction searchRecipes
-import { searchRecipes } from "/js/Utils//FilterSearch.js";
+import { searchRecipes } from "./Utils//FilterSearch.js";
 searchRecipes();
 
 //importe le dropdown
-import { handleDropdown } from "/js/Utils/dropdownList.js";
+import { handleDropdown } from "./Utils/dropdownList.js";
 handleDropdown();
 
 //importer la liste des ingrédients des  appareils et des ustensiles
@@ -22,21 +22,21 @@ import {
   appareilInsert,
   ingredientInsert,
   ustensilsInsert,
-} from "/js/Templates/list-select.js";
+} from "./Templates/list-select.js";
 ingredientInsert();
 appareilInsert();
 ustensilsInsert();
 
-import { addTag } from "/js/Templates/tag.js";
+import { addTag } from "./Templates/tag.js";
 addTag();
 
 import { updateRecipeCount } from "/js/Utils/filterSearch.js";
 updateRecipeCount(recipes);
 
 // Debug
-import { logInputValue } from "/js/Data/input-data.js";
+import { logInputValue } from "./Data/input-data.js";
 logInputValue();
 
-import { handleDropdownSearch } from "/js/Utils/dropdownSearch.js";
+import { handleDropdownSearch } from "./Utils/dropdownSearch.js";
 
 handleDropdownSearch();
