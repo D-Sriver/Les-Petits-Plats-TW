@@ -4,15 +4,17 @@ import { generateRecipeHTML } from "../Templates/recipe-card.js";
 // Récupérez la div qui contiendra les recettes
 const recipeContainer = document.querySelector(".recipes");
 
-// Affichez les recettes
 const displayRecipes = (recipes) => {
-  const recipesToDisplay = recipes ? recipes : recipes;
-  recipeContainer.innerHTML = "";
-  // Affichez les recettes
-  recipesToDisplay.forEach((recipe) => {
-    const recipeHTML = generateRecipeHTML(recipe);
-    recipeContainer.innerHTML += recipeHTML;
-  });
+  // Si aucune recette n'est fournie, affichez un message
+  if (!recipes || recipes.length === 0) {
+    recipeContainer.innerHTML = "Aucune recette trouvée. Veuillez réessayer.";
+    return;
+  }
+  // si des recettes sont trouvées, générez le HTML pour chaque recette
+  const recipesHTML = recipes
+    .map((recipe) => generateRecipeHTML(recipe))
+    .join("");
+  recipeContainer.innerHTML = recipesHTML;
 };
 
 // Exportez la fonction displayRecipes

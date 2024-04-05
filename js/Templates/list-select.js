@@ -1,12 +1,5 @@
-// Import des données
-import {
-  getAppareil,
-  getIngredients,
-  getUstensils,
-} from "../Data/filter-data-list.js";
-
 // Fonction pour extraire le contenu du paragraphe cliqué
-export function extractTagContent(event) {
+function extractTagContent(event) {
   const clickedParagraphContent = event.target.textContent;
   console.log(clickedParagraphContent);
 }
@@ -14,9 +7,8 @@ export function extractTagContent(event) {
 function insertOptions(optionsList, items) {
   items.forEach((item) => {
     const option = document.createElement("li");
-    option.classList.add("rounded-xl");
-
     const paragraph = document.createElement("p");
+    option.classList.add("rounded-xl");
     paragraph.classList.add(
       "flex",
       "justify-center",
@@ -50,7 +42,6 @@ function insertCategory(categoryElement, items) {
     "m-0",
     "py-1",
     "w-full",
-    "rounded-xl",
     "focus:outline-none"
   );
 
@@ -82,20 +73,4 @@ function insertCategory(categoryElement, items) {
   insertOptions(optionsList, items);
 }
 
-export function ingredientInsert() {
-  const categoryElement = document.querySelector(".inline-block:nth-child(1)");
-  const ingredients = getIngredients();
-  insertCategory(categoryElement, ingredients);
-}
-
-export function appareilInsert() {
-  const categoryElement = document.querySelector(".inline-block:nth-child(2)");
-  const appareils = getAppareil();
-  insertCategory(categoryElement, appareils);
-}
-
-export function ustensilsInsert() {
-  const categoryElement = document.querySelector(".inline-block:nth-child(3)");
-  const ustensils = getUstensils();
-  insertCategory(categoryElement, ustensils);
-}
+export { insertCategory };

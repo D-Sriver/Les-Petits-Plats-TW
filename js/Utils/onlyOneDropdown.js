@@ -1,4 +1,4 @@
-export function handleDropdown() {
+function OnlyOneDropdown() {
   const dropdownBtns = document.querySelectorAll(".dropdown-btn");
   document.addEventListener("click", function (event) {
     dropdownBtns.forEach(function (dropdownBtn) {
@@ -30,3 +30,5 @@ export function handleDropdown() {
     });
   });
 }
+
+export { OnlyOneDropdown };

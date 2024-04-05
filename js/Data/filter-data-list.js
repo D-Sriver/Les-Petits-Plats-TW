@@ -1,44 +1,53 @@
 import { recipes } from "../Data/recipes.js";
-
+// fonction pour capitaliser la première lettre d'un mot
 const capitalizeFirstLetter = (word) => {
   return word.charAt(0).toUpperCase() + word.slice(1);
 };
-
+// compare les ingrédients
 const getIngredients = () => {
-  const ingredients = recipes.reduce((uniqueIngredients, recette) => {
+  const uniqueIngredients = new Set();
+  recipes.forEach((recette) => {
+    // forEach pour parcourir les ingrédients de chaque recette
     recette.ingredients.forEach((ingredient) => {
-      const lowerCaseIngredient = ingredient.ingredient.toLowerCase();
-      if (!uniqueIngredients.includes(lowerCaseIngredient)) {
-        uniqueIngredients.push(lowerCaseIngredient);
-      }
+      // ajout des ingrédients dans le Set uniqueIngredients
+      uniqueIngredients.add(ingredient.ingredient.toLowerCase());
     });
-    return uniqueIngredients;
-  }, []);
-  return ingredients.sort().map(capitalizeFirstLetter);
+  });
+  // tri des ingrédients
+  const sortedIngredients = Array.from(uniqueIngredients)
+    // le filtre enlève les éléments vides
+    .filter((ingredient) => ingredient !== "")
+    // tri des ingrédients par ordre alphabétique
+    .sort()
+    // capitalisation de la première lettre
+    .map(capitalizeFirstLetter);
+  return sortedIngredients;
 };
 
 const getAppareil = () => {
-  const appareil = recipes.reduce((uniqueAppareil, recette) => {
-    const lowerCaseAppareil = recette.appliance.toLowerCase();
-    if (!uniqueAppareil.includes(lowerCaseAppareil)) {
-      uniqueAppareil.push(lowerCaseAppareil);
-    }
-    return uniqueAppareil;
-  }, []);
-  return appareil.sort().map(capitalizeFirstLetter);
+  const uniqueAppareils = new Set();
+  recipes.forEach((recette) => {
+    uniqueAppareils.add(recette.appliance.toLowerCase());
+  });
+  const sortedAppareils = Array.from(uniqueAppareils)
+    .filter((appareil) => appareil !== "")
+    .sort()
+    .map(capitalizeFirstLetter);
+  return sortedAppareils;
 };
 
 const getUstensils = () => {
-  const ustensils = recipes.reduce((uniqueUstensils, recette) => {
+  const uniqueUstensils = new Set();
+  recipes.forEach((recette) => {
     recette.ustensils.forEach((ustensil) => {
-      const lowerCaseUstensil = ustensil.toLowerCase();
-      if (!uniqueUstensils.includes(lowerCaseUstensil)) {
-        uniqueUstensils.push(lowerCaseUstensil);
-      }
+      uniqueUstensils.add(ustensil.toLowerCase());
     });
-    return uniqueUstensils;
-  }, []);
-  return ustensils.sort().map(capitalizeFirstLetter);
+  });
+  const sortedUstensils = Array.from(uniqueUstensils)
+    .filter((ustensil) => ustensil !== "")
+    .sort()
+    .map(capitalizeFirstLetter);
+  return sortedUstensils;
 };
 
 export { getAppareil, getIngredients, getUstensils };
