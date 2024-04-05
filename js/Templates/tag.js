@@ -4,7 +4,7 @@ import {
   getUstensils,
 } from "../Data/filter-data-list.js";
 import { addTagClick, addTagEnter, closeTag } from "../Utils/actionTag.js";
-import { search } from "/js/Utils/search.js";
+import { search } from "../Utils/search.js";
 
 let tags = [];
 const allOptions = [...getIngredients(), ...getAppareil(), ...getUstensils()];
