@@ -6,7 +6,7 @@ const generateRecipeHTML = (recipe) => {
         <span class="absolute top-6 right-4 bg-yellow-400 text-xs px-4 py-2 rounded-3xl">${
           recipe.time
         } min</span>
-        <img src="../img/Recipe/${
+        <img src="/img/Recipe/${
           recipe.image
         }" alt="repas" class="w-full h-56 object-cover rounded-t-3xl">
       </div>
