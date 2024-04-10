@@ -1,4 +1,4 @@
-// Fonction de recherche qui renvoie une promesse
+// Fonction de recherche qui renvoie une promess
 function search(inputElement) {
   return new Promise((resolve) => {
     // Ajoute un écouteur d'événements "input" à l'élément de recherche
@@ -8,6 +8,10 @@ function search(inputElement) {
       console.log(inputElement.value);
     });
   });
+}
+export function updateRecipeCount(filteredRecipes) {
+  const recipeCount = document.getElementById("recipeCount");
+  recipeCount.textContent = filteredRecipes.length;
 }
 
 export { search };

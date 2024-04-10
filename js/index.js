@@ -25,3 +25,6 @@ addTag();
 import { handleDropdownSearch } from "./Utils/dropdownSearch.js";
 
 handleDropdownSearch();
+
+import { updateRecipeCount } from "/js/Utils/search.js";
+updateRecipeCount(recipes);
