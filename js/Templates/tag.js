@@ -1,15 +1,6 @@
-import {
-  getAppareil,
-  getIngredients,
-  getUstensils,
-} from "../Data/filter-data-list.js";
-import { addTagClick, addTagEnter, closeTag } from "../Utils/actionTag.js";
-import { search } from "../Utils/search.js";
+//
 
-let tags = [];
-const allOptions = [...getIngredients(), ...getAppareil(), ...getUstensils()];
-
-function logiqueAddTag(tagTextElement, tagContainer, inputElement) {
+function tagStructure(tagTextElement, tagContainer) {
   const newTagElement = document.createElement("tag");
   newTagElement.classList.add(
     "tag",
@@ -28,54 +19,14 @@ function logiqueAddTag(tagTextElement, tagContainer, inputElement) {
   );
 
   const closeButton = document.createElement("i");
-  closeButton.classList.add("fas", "fa-times", "cursor-pointer");
-  closeButton.classList.add("p-2");
+  closeButton.classList.add("fas", "fa-times", "cursor-pointer", "p-2");
+  closeButton.addEventListener("click", () => {
+    newTagElement.remove();
+  });
 
   newTagElement.appendChild(tagTextElement);
   newTagElement.appendChild(closeButton);
   tagContainer.appendChild(newTagElement);
-
-  // Appeler la fonction pour gérer les actions du tag
-  closeTag(newTagElement, inputElement);
-
-  tags.push(tagTextElement.textContent);
 }
 
-export function addTag() {
-  const inputElement = document.getElementById("search");
-
-  const tagContainer = document.querySelector(".tag-input");
-
-  search(inputElement).then(() => {
-    inputElement.addEventListener("keyup", (event) => {
-      // Appeler la fonction pour gérer la touche "Entrée"
-      addTagEnter(event, inputElement, () => {
-        if (inputElement.value.trim() !== "") {
-          logiqueAddTag(
-            document.createElement("p"),
-            tagContainer,
-            inputElement
-          );
-          inputElement.value = "";
-        }
-      });
-    });
-
-    const searchButton = document.getElementById("searchButton");
-    searchButton.addEventListener("click", () => {
-      // Appeler la fonction pour gérer le clic sur le bouton de recherche
-      addTagClick(inputElement, () => {
-        if (inputElement.value.trim() !== "") {
-          logiqueAddTag(
-            document.createElement("p"),
-            tagContainer,
-            inputElement
-          );
-          inputElement.value = "";
-        }
-      });
-    });
-  });
-}
-
-export { logiqueAddTag, tags };
+export { tagStructure };

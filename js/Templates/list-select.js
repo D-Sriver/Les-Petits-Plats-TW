@@ -1,9 +1,13 @@
 // Fonction pour extraire le contenu du paragraphe cliqué
-function extractTagContent(event) {
-  const clickedParagraphContent = event.target.textContent;
-  console.log(clickedParagraphContent);
-}
+import { extractContent } from "../Data/userData.js";
+let uniqueIdCounter = 0;
 
+// Fonction pour générer un ID unique
+function generateUniqueSearchID() {
+  uniqueIdCounter++;
+  return "search-input-" + uniqueIdCounter;
+}
+// Fonction pour insérer les options dans la liste déroulante
 function insertOptions(optionsList, items) {
   items.forEach((item) => {
     const option = document.createElement("li");
@@ -22,7 +26,7 @@ function insertOptions(optionsList, items) {
     );
     paragraph.textContent = item;
 
-    paragraph.addEventListener("click", extractTagContent);
+    paragraph.addEventListener("click", extractContent);
     option.appendChild(paragraph);
     optionsList.appendChild(option);
   });
@@ -45,14 +49,17 @@ function insertCategory(categoryElement, items) {
     "focus:outline-none"
   );
 
-  //ajout du bouton de recherche
+  // Attribution d'un ID unique au champ de recherche
+  searchInput.id = generateUniqueSearchID();
+
+  // Ajout du bouton de recherche
   const searchButton = document.createElement("button");
   searchButton.classList.add("search-button", "bg-white", "ml-2");
   const searchIcon = document.createElement("i");
   searchIcon.classList.add("fas", "fa-search");
   searchButton.appendChild(searchIcon);
 
-  // ajout de la liste des options dans la catégorie associée
+  // Ajout de la liste des options dans la catégorie associée
   const searchContainer = document.createElement("li");
   searchContainer.classList.add(
     "search-container",

@@ -19,11 +19,8 @@ ingredientInsert();
 appareilInsert();
 ustensilsInsert();
 
-import { addTag } from "./Templates/tag.js";
-addTag();
-
 import { handleDropdownSearch } from "./Utils/dropdownSearch.js";
 handleDropdownSearch();
 
-import { updateRecipeCount } from "/js/Utils/search.js";
+import { updateRecipeCount } from "./Utils/updateCount.js";
 updateRecipeCount(recipes);
