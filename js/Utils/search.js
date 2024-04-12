@@ -1,5 +1,7 @@
-// Déclarez un tableau pour stocker les entrées de l'utilisateur
+// Importez les dépendances nécessaires
 import { UserData } from "../Data/userData.js";
+import { displayRecipes } from "./displayRecipe.js";
+import { filterRecipes } from "./filterRecipes.js";
 import { xssHtml } from "./xss.js";
 
 // Déclarez une fonction pour rechercher les entrées de l'utilisateur
@@ -13,8 +15,12 @@ function search(inputElement) {
       }
 
       if (userInput !== "") {
+        UserData.pop(userInput);
         UserData.push(userInput);
         console.table(UserData);
+        const filteredRecipes = filterRecipes(userInput);
+        displayRecipes(filteredRecipes);
+        updateRecipeCount(filteredRecipes);
       }
     }
   });
@@ -30,6 +36,9 @@ function search(inputElement) {
     if (inputElementValue !== "") {
       UserData.push(inputElementValue);
       console.table(UserData);
+      const filteredRecipes = filterRecipes(inputElementValue);
+      displayRecipes(filteredRecipes);
+      updateRecipeCount(filteredRecipes);
     }
   });
 }
