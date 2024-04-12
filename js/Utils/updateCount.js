@@ -3,3 +3,4 @@ function updateRecipeCount(filteredRecipes) {
   recipeCount.textContent = filteredRecipes.length;
 }
 export { updateRecipeCount };
+//todo : déplacer

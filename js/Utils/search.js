@@ -4,34 +4,33 @@ import { xssHtml } from "./xss.js";
 
 // Déclarez une fonction pour rechercher les entrées de l'utilisateur
 function search(inputElement) {
-  return new Promise((resolve) => {
-    function handleSearch() {
+  inputElement.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
       const userInput = inputElement.value.trim();
-      const CleanInput = xssHtml(userInput);
-      if (userInput === CleanInput && userInput !== "") {
-        resolve(userInput);
-        console.log(userInput);
+      const cleanInput = xssHtml(userInput);
+      if (userInput !== cleanInput) {
+        return;
+      }
+
+      if (userInput !== "") {
         UserData.push(userInput);
         console.table(UserData);
       }
     }
+  });
 
-    inputElement.addEventListener("keyup", (event) => {
-      if (event.key === "Enter") {
-        const userInput = inputElement.value.trim();
-        const CleanInput = xssHtml(userInput);
-        if (userInput !== CleanInput) {
-          // L'entrée contient des caractères spéciaux échappés, ne pas la prendre en compte
-          return;
-        }
+  const searchButton = document.getElementById("searchButton");
+  searchButton.addEventListener("click", () => {
+    const inputElementValue = inputElement.value.trim();
+    const cleanInput = xssHtml(inputElementValue);
+    if (inputElementValue !== cleanInput) {
+      return;
+    }
 
-        if (userInput !== "") {
-          resolve(userInput);
-          UserData.push(userInput);
-          console.table(UserData);
-        }
-      }
-    });
+    if (inputElementValue !== "") {
+      UserData.push(inputElementValue);
+      console.table(UserData);
+    }
   });
 }
 
