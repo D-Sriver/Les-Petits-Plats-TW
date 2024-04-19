@@ -2,8 +2,9 @@
 import { recipes } from "./Data/recipes.js";
 
 //importe l'affichage des recettes
-import { displayRecipes } from "./Utils/displayRecipe.js";
+import { displayRecipes, updateRecipeCount } from "./Utils/displayRecipe.js";
 displayRecipes(recipes);
+updateRecipeCount(recipes);
 
 //importe le dropdown
 import { OnlyOneDropdown } from "./Utils/onlyOneDropdown.js";
@@ -25,6 +26,3 @@ ustensilsInsert();
 
 import { handleDropdownSearch } from "./Utils/dropdownSearch.js";
 handleDropdownSearch();
-
-import { updateRecipeCount } from "./Utils/updateCount.js";
-updateRecipeCount(recipes);

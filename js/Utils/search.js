@@ -2,8 +2,18 @@
 import { UserData } from "../Data/userData.js";
 import { displayRecipes } from "./displayRecipe.js";
 import { filterRecipes } from "./filterRecipes.js";
-import { xssHtml } from "./xss.js";
 
+// fonction de remplacement pour les caractères spéciaux
+function xssHtml(stringXss) {
+  return stringXss.replace(
+    // expression régulière pour les caractères spéciaux
+    /[&<>"'`=/\\(){}\[\];:,.?@#$%^*+~_|]/g,
+    function (match) {
+      // retourne le code ASCII de la correspondance
+      return `&#${match.charCodeAt(0)};`;
+    }
+  );
+}
 // Déclarez une fonction pour rechercher les entrées de l'utilisateur
 function search(inputElement) {
   inputElement.addEventListener("keyup", (event) => {
@@ -16,7 +26,6 @@ function search(inputElement) {
 
       if (userInput !== "") {
         UserData.pop(userInput);
-        UserData.push(userInput);
         console.table(UserData);
         const filteredRecipes = filterRecipes(userInput);
         displayRecipes(filteredRecipes);

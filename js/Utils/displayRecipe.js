@@ -17,5 +17,9 @@ const displayRecipes = (recipes) => {
   recipeContainer.innerHTML = recipesHTML;
 };
 
+function updateRecipeCount(filteredRecipes) {
+  const recipeCount = document.getElementById("recipeCount");
+  recipeCount.textContent = filteredRecipes.length;
+}
 // Exportez la fonction displayRecipes
-export { displayRecipes };
+export { displayRecipes, updateRecipeCount };
