@@ -23,4 +23,39 @@ function ustensilsInsert() {
   insertCategory(categoryElement, ustensils);
 }
 
-export { appareilInsert, ingredientInsert, ustensilsInsert };
+function updateDropdownOptions(filteredRecipes) {
+  const uniqueAppareils = new Set();
+  const uniqueIngredients = new Set();
+  const uniqueUstensils = new Set();
+
+  // Parcourir les recettes filtrées pour extraire les appareils, ingrédients et ustensiles uniques
+  filteredRecipes.forEach((recipe) => {
+    uniqueAppareils.add(recipe.appliance);
+    recipe.ingredients.forEach((ingredient) =>
+      uniqueIngredients.add(ingredient.ingredient)
+    );
+    recipe.ustensils.forEach((ustensil) => uniqueUstensils.add(ustensil));
+  });
+
+  // Mettre à jour les options des dropdowns avec les éléments uniques
+  const categoryElementAppareil = document.querySelector(
+    ".inline-block:nth-child(2)"
+  );
+  const categoryElementIngredient = document.querySelector(
+    ".inline-block:nth-child(3)"
+  );
+  const categoryElementUstensil = document.querySelector(
+    ".inline-block:nth-child(4)"
+  );
+
+  insertCategory(categoryElementAppareil, Array.from(uniqueAppareils));
+  insertCategory(categoryElementIngredient, Array.from(uniqueIngredients));
+  insertCategory(categoryElementUstensil, Array.from(uniqueUstensils));
+}
+
+export {
+  appareilInsert,
+  ingredientInsert,
+  updateDropdownOptions,
+  ustensilsInsert,
+};

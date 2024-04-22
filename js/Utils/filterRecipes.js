@@ -5,7 +5,15 @@ let filteredRecipes = [...recipes]; // créer une copie des recettes
 
 export function filterRecipes(searchTerm) {
   // Je crée un tableau avec les termes de recherche
-  const combinedSearchTerms = [...UserData, searchTerm];
+  const combinedSearchTerms = [...UserData];
+
+  // Vérifier si searchTerm est défini et est une chaîne de caractères
+  if (typeof searchTerm === "string" && searchTerm.trim() !== "") {
+    combinedSearchTerms.push(searchTerm.trim());
+  }
+
+  // Réinitialiser les recettes filtrées
+  let filteredRecipes = [...recipes];
 
   // je filtre les recettes en fonction des termes de recherche
   combinedSearchTerms.forEach((term) => {

@@ -1,4 +1,3 @@
-// Fonction pour extraire le contenu du paragraphe cliqué
 import { extractContent } from "../Data/userData.js";
 let uniqueIdCounter = 0;
 
@@ -7,6 +6,7 @@ function generateUniqueSearchID() {
   uniqueIdCounter++;
   return "search-input-" + uniqueIdCounter;
 }
+
 // Fonction pour insérer les options dans la liste déroulante
 function insertOptions(optionsList, items) {
   items.forEach((item) => {
@@ -26,7 +26,6 @@ function insertOptions(optionsList, items) {
     );
     paragraph.textContent = item;
 
-    paragraph.addEventListener("click", extractContent);
     option.appendChild(paragraph);
     optionsList.appendChild(option);
   });
@@ -34,6 +33,9 @@ function insertOptions(optionsList, items) {
 
 // Fonction pour générer et insérer les options dans la catégorie
 function insertCategory(categoryElement, items) {
+  if (!categoryElement) {
+    return;
+  }
   const optionsList = categoryElement.querySelector(".dropdown-list");
   optionsList.innerHTML = "";
 
@@ -76,6 +78,14 @@ function insertCategory(categoryElement, items) {
   searchContainer.appendChild(searchInput);
   searchContainer.appendChild(searchButton);
   optionsList.appendChild(searchContainer);
+
+  // Attachez l'événement de clic une fois que les options ont été insérées
+  setTimeout(() => {
+    const paragraphs = optionsList.querySelectorAll("p");
+    paragraphs.forEach((paragraph) => {
+      paragraph.addEventListener("click", extractContent);
+    });
+  }, 0);
 
   insertOptions(optionsList, items);
 }
