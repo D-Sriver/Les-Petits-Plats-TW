@@ -38,10 +38,10 @@ function updateDropdownOptions(filteredRecipes) {
   });
 
   // Mettre à jour les options des dropdowns avec les éléments uniques
-  const categoryElementAppareil = document.querySelector(
+  const categoryElementIngredient = document.querySelector(
     ".inline-block:nth-child(1)"
   );
-  const categoryElementIngredient = document.querySelector(
+  const categoryElementAppareil = document.querySelector(
     ".inline-block:nth-child(2)"
   );
   const categoryElementUstensil = document.querySelector(
