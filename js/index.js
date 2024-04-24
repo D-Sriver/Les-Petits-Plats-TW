@@ -10,9 +10,10 @@ updateRecipeCount(recipes);
 import { OnlyOneDropdown } from "./Utils/onlyOneDropdown.js";
 OnlyOneDropdown();
 
-import { search } from "./Utils/search.js";
+import { logInputValue, search } from "./Utils/search.js";
 const inputElement = document.getElementById("search");
 search(inputElement);
+logInputValue();
 
 //importer la liste des ingrédients des  appareils et des ustensiles
 import {

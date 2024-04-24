@@ -1,7 +1,24 @@
 // Importez les dépendances nécessaires
+import { recipes } from "../Data/recipes.js";
 import { UserData } from "../Data/userData.js";
 import { displayRecipes } from "./displayRecipe.js";
 import { filterRecipes } from "./filterRecipes.js";
+
+function resetDisplay() {
+  displayRecipes(recipes);
+  updateRecipeCount(recipes);
+}
+// Déclarez une fonction pour afficher la valeur de l'entrée de l'utilisateur
+export function logInputValue() {
+  const inputElement = document.getElementById("search");
+
+  inputElement.addEventListener("input", () => {
+    console.log(inputElement.value);
+    if (inputElement.value === "") {
+      resetDisplay();
+    }
+  });
+}
 
 // fonction de remplacement pour les caractères spéciaux
 function xssHtml(stringXss) {
