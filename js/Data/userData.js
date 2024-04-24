@@ -1,5 +1,5 @@
 const UserData = [];
-import { createTagsFromArray } from "../Utils/TagBuild.js";
+import { createTagsFromArray } from "../Templates/tag.js";
 import { displayRecipes } from "../Utils/displayRecipe.js";
 import { filterRecipes } from "../Utils/filterRecipes.js";
 import { updateDropdownOptions } from "../Utils/insertOption.js";

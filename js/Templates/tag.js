@@ -1,7 +1,6 @@
 //
 import { recipes } from "../Data/recipes.js";
 import { UserData } from "../Data/userData.js";
-import { createTagsFromArray } from "../Utils/TagBuild.js";
 import { displayRecipes } from "../Utils/displayRecipe.js";
 import { filterRecipes } from "../Utils/filterRecipes.js";
 import { updateRecipeCount } from "../Utils/search.js";
@@ -23,7 +22,6 @@ function tagStructure(tagTextElement, tagContainer) {
     "rounded-xl",
     "hover:bg-yellow-500"
   );
-
   const closeButton = document.createElement("i");
   closeButton.classList.add("fas", "fa-times", "cursor-pointer", "p-2");
   closeButton.addEventListener("click", () => {
@@ -52,4 +50,11 @@ function tagStructure(tagTextElement, tagContainer) {
   tagContainer.appendChild(newTagElement);
 }
 
-export { tagStructure };
+function createTagsFromArray(dataArray, tagContainer) {
+  dataArray.forEach((element) => {
+    const tagTextElement = document.createTextNode(element);
+    tagStructure(tagTextElement, tagContainer);
+  });
+}
+
+export { createTagsFromArray, tagStructure };
