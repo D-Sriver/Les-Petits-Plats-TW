@@ -3,6 +3,7 @@ import { recipes } from "../Data/recipes.js";
 import { UserData } from "../Data/userData.js";
 import { displayRecipes } from "../Utils/displayRecipe.js";
 import { filterRecipes } from "../Utils/filterRecipes.js";
+import { updateDropdownOptions } from "../Utils/insertOption.js";
 import { updateRecipeCount } from "../Utils/search.js";
 
 function tagStructure(tagTextElement, tagContainer) {
@@ -38,10 +39,12 @@ function tagStructure(tagTextElement, tagContainer) {
     if (UserData.length > 0) {
       displayRecipes(filterRecipes(recipes, UserData));
       updateRecipeCount(filterRecipes(recipes, UserData));
+      updateDropdownOptions(filterRecipes(recipes, UserData));
     } else {
       //afficher toutes les recettes
       displayRecipes(recipes);
       updateRecipeCount(recipes);
+      updateDropdownOptions(recipes);
     }
   });
 

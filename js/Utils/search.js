@@ -5,6 +5,7 @@ import { displayRecipes } from "./displayRecipe.js";
 import { filterRecipes } from "./filterRecipes.js";
 
 function resetDisplay() {
+  UserData.length = 0;
   displayRecipes(recipes);
   updateRecipeCount(recipes);
 }
@@ -31,6 +32,7 @@ function xssHtml(stringXss) {
     }
   );
 }
+
 // Déclarez une fonction pour rechercher les entrées de l'utilisateur
 function search(inputElement) {
   inputElement.addEventListener("keyup", (event) => {
@@ -42,7 +44,7 @@ function search(inputElement) {
       }
 
       if (userInput !== "") {
-        UserData.pop(userInput);
+        UserData.push(userInput);
         console.table(UserData);
         const filteredRecipes = filterRecipes(userInput);
         displayRecipes(filteredRecipes);
