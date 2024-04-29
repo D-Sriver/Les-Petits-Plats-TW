@@ -50,6 +50,7 @@ function search(inputElement) {
         const filteredRecipes = filterRecipes(userInput);
         displayRecipes(filteredRecipes);
         updateRecipeCount(filteredRecipes);
+        handleDropdownSearch();
       }
     }
   });
