@@ -10,34 +10,33 @@ function filterRecipes(searchTerm) {
     combinedSearchTerms.push(searchTerm.trim());
   }
 
-  let filteredRecipes = [...recipes];
+  let filteredRecipes = [];
 
-  for (let i = 0; i < combinedSearchTerms.length; i++) {
-    const term = combinedSearchTerms[i].toLowerCase();
+  for (let i = 0; i < recipes.length; i++) {
+    const recipe = recipes[i];
+    let matchFound = false;
 
-    filteredRecipes = filteredRecipes.filter((recipe) => {
-      let matchFound = false;
+    for (let j = 0; j < combinedSearchTerms.length; j++) {
+      const term = combinedSearchTerms[j].toLowerCase();
 
-      if (recipe.name.toLowerCase().includes(term)) {
-        matchFound = true;
-      } else if (recipe.appliance.toLowerCase().includes(term)) {
-        matchFound = true;
-      } else if (
+      if (
+        recipe.name.toLowerCase().includes(term) ||
+        recipe.appliance.toLowerCase().includes(term) ||
         recipe.ingredients.some((ingredient) =>
           ingredient.ingredient.toLowerCase().includes(term)
-        )
-      ) {
-        matchFound = true;
-      } else if (
+        ) ||
         recipe.ustensils.some((ustensil) =>
           ustensil.toLowerCase().includes(term)
         )
       ) {
         matchFound = true;
+        break;
       }
+    }
 
-      return matchFound;
-    });
+    if (matchFound) {
+      filteredRecipes.push(recipe);
+    }
   }
 
   return filteredRecipes;
