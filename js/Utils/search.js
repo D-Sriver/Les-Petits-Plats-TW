@@ -2,6 +2,7 @@
 import { recipes } from "../Data/recipes.js";
 import { UserData } from "../Data/userData.js";
 import { displayRecipes } from "./displayRecipe.js";
+import { handleDropdownSearch } from "./dropdownSearch.js";
 import { filterRecipes } from "./filterRecipes.js";
 
 function resetDisplay() {
@@ -67,6 +68,7 @@ function search(inputElement) {
       const filteredRecipes = filterRecipes(inputElementValue);
       displayRecipes(filteredRecipes);
       updateRecipeCount(filteredRecipes);
+      handleDropdownSearch();
     }
   });
 }

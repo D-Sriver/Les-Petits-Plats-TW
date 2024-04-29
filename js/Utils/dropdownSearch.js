@@ -10,7 +10,7 @@ export function handleDropdownSearch() {
     // Ajouter un écouteur d'événement sur l'input pour détecter les changements
     searchInput.addEventListener("input", function () {
       const searchTerm = searchInput.value.toLowerCase().trim();
-      const items = dropdownList.querySelectorAll("li:not(:first-child)"); // Exclure l'élément de saisie de recherche
+      const items = dropdownList.querySelectorAll("li:not(:first-child)");
 
       items.forEach(function (item) {
         const text = item.textContent.toLowerCase().trim();
