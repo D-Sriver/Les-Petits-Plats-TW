@@ -2,6 +2,7 @@
 import { recipes } from "../Data/recipes.js";
 import { UserData } from "../Data/userData.js";
 import { displayRecipes } from "../Utils/displayRecipe.js";
+import { handleDropdownSearch } from "../Utils/dropdownSearch.js";
 import { filterRecipes } from "../Utils/filterRecipes.js";
 import { updateDropdownOptions } from "../Utils/insertOption.js";
 import { updateRecipeCount } from "../Utils/search.js";
@@ -45,6 +46,7 @@ function tagStructure(tagTextElement, tagContainer) {
       displayRecipes(recipes);
       updateRecipeCount(recipes);
       updateDropdownOptions(recipes);
+      handleDropdownSearch();
     }
   });
 
