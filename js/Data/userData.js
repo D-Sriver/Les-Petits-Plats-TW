@@ -1,6 +1,7 @@
 const UserData = [];
 import { createTagsFromArray } from "../Templates/tag.js";
 import { displayRecipes } from "../Utils/displayRecipe.js";
+import { handleDropdownSearch } from "../Utils/dropdownSearch.js";
 import { filterRecipes } from "../Utils/filterRecipes.js";
 import { updateDropdownOptions } from "../Utils/insertOption.js";
 import { updateRecipeCount } from "../Utils/search.js";
@@ -23,6 +24,7 @@ function extractContent(event) {
   displayRecipes(filteredRecipes);
   updateRecipeCount(filteredRecipes);
   updateDropdownOptions(filteredRecipes);
+  handleDropdownSearch();
   console.table(filteredRecipes);
 }
 
