@@ -15,7 +15,6 @@ export function logInputValue() {
   const inputElement = document.getElementById("search");
 
   inputElement.addEventListener("input", () => {
-    console.log(inputElement.value);
     if (inputElement.value === "") {
       resetDisplay();
     }
@@ -46,7 +45,6 @@ function search(inputElement) {
 
       if (userInput !== "") {
         UserData.push(userInput);
-        console.table(UserData);
         const filteredRecipes = filterRecipes(userInput);
         displayRecipes(filteredRecipes);
         updateRecipeCount(filteredRecipes);
@@ -65,7 +63,6 @@ function search(inputElement) {
 
     if (inputElementValue !== "") {
       UserData.push(inputElementValue);
-      console.table(UserData);
       const filteredRecipes = filterRecipes(inputElementValue);
       displayRecipes(filteredRecipes);
       updateRecipeCount(filteredRecipes);

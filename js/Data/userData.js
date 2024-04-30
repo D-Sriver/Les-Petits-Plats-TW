@@ -18,14 +18,12 @@ function extractContent(event) {
   const filteredRecipes = filterRecipes(clickedParagraphContent);
   // push le paragraphe cliqué dans le tableau UserData
   UserData.push(clickedParagraphContent);
-  console.table(UserData);
   tagContainer.innerHTML = "";
   createTagsFromArray(UserData, tagContainer);
   displayRecipes(filteredRecipes);
   updateRecipeCount(filteredRecipes);
   updateDropdownOptions(filteredRecipes);
   handleDropdownSearch();
-  console.table(filteredRecipes);
 }
 
 export { UserData, extractContent };
