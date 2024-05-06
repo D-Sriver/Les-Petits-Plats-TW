@@ -4,6 +4,7 @@ import { UserData } from "../Data/userData.js";
 import { displayRecipes } from "./displayRecipe.js";
 import { handleDropdownSearch } from "./dropdownSearch.js";
 import { filterRecipes } from "./filterRecipes.js";
+import { updateDropdownOptions } from "./insertOption.js";
 
 function resetDisplay() {
   UserData.length = 0;
@@ -49,6 +50,7 @@ function search(inputElement) {
         displayRecipes(filteredRecipes);
         updateRecipeCount(filteredRecipes);
         handleDropdownSearch();
+        updateDropdownOptions(filteredRecipes);
       }
     }
   });
@@ -67,6 +69,7 @@ function search(inputElement) {
       displayRecipes(filteredRecipes);
       updateRecipeCount(filteredRecipes);
       handleDropdownSearch();
+      updateDropdownOptions(filteredRecipes);
     }
   });
 }
